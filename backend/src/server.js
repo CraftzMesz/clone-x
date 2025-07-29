@@ -1,11 +1,18 @@
 import express from "express";
 import { ENV } from "./config/env.js";
 import { connectDB } from "./config/db.js";
+import cors from "cors";
+import { clerkMiddleware } from "@clerk/express";
 
 const app = express();
+app.use(cors());
+app.use(express.json());
+
+app.use(clerkMiddleware());
 
 app.get("/", (req, res) => res.send("Hello from server")) // Ini juga akan ter-override oleh try/catch di bawah jika servernya berhasil start
 
+app.use("/api/users", userRoutes)
 const startServer = async () => {
   try {
     await connectDB();
