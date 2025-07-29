@@ -1,0 +1,23 @@
+{
+  "name": "backend",
+  "module": "src/server.js",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "scripts": {
+    "dev": "bun --watch src/server.js",
+    "start": "bun src/server.js"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "@clerk/express": "1.7.0",
+    "cors": "2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "5.1.0",
+    "mongoose": "8.16.0"
+  }
+}
